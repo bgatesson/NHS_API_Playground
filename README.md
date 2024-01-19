@@ -1,8 +1,6 @@
 # NHS_API_Playground
 
-Have fun guys :)
-
-gg ff 15
+Currently working on integrating NHS Login
 
 https://digital.nhs.uk/developer/api-catalogue/personal-demographics-service-fhir#get-/Patient/-id-
 
@@ -12,4 +10,5 @@ Objectives:
 - Make NHS Login integration
 - Have the APIs working
 
-NEED TO RIGHT NOW: CREATE DEVELOPPER ACCOUNT ON NHS DIGITAL
+ACCOUNT CREATED
+
