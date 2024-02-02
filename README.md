@@ -1,14 +1,11 @@
 # NHS_API_Playground
 
-Currently working on integrating NHS Login
+CHANGE OF PLAN WE ARE DOING APPLICATION RESTRICTED 
 
-https://digital.nhs.uk/developer/api-catalogue/personal-demographics-service-fhir#get-/Patient/-id-
+NHS Digital account created
 
-https://digital.nhs.uk/developer/api-catalogue/gp-connect-patient-facing-access-record-fhir
+Key pair for integration testing generated (available in text file)
 
-Objectives:
-- Make NHS Login integration
-- Have the APIs working
-
-ACCOUNT CREATED
+NOW:
+SET Public Key URL and callback URL
 
