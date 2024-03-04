@@ -6,6 +6,7 @@ NHS Digital account created
 
 Key pair for integration testing generated (available in text file)
 
-NOW:
-SET Public Key URL and callback URL
+Public Key URL and callback url HAVE BEEN SET (See NHS Digital Account)
+
+NOW: SET UP a WEBHOOK TO GET API JSON PACKAGE, GENERATE JWT Script
 
