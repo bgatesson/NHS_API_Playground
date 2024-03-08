@@ -16,3 +16,5 @@ def parse_json():
         return jsonify({"message": "JSON parsed successfully", "data": string_data}), 200
     else:
         return jsonify({"error": "Request must be JSON"}), 400
+
+app.run(debug=True)
