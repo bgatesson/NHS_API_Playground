@@ -4,6 +4,8 @@ import call_SCR
 app = Flask(__name__)
 
 @app.route('/parse-json', methods=['POST'])
+request = send_api_request()
+print(parse_json(request))
 def parse_json():
     # Check if the request contains JSON data
     if request.is_json:
