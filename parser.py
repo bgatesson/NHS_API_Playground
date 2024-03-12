@@ -8,7 +8,6 @@ def receive_api_request():
     data = send_api_request()
     return jsonify(data)
 
-@app.route('/parse-json', methods=['POST'])
 def parse_json():
     # Check if the request contains JSON data
     if request.is_json:
