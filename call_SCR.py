@@ -16,7 +16,7 @@ def send_api_request():
     response = requests.get(first_api_url, headers=headers)
     response.raise_for_status()  # Raises a HTTPError if the response is an error
     data = response.json()
-    print("First API Response:", data)
+    #print("First API Response:", data)
 
     # Extract the composition identifier from the first API response
     composition_identifier = data.get('entry', [{}])[0].get('resource', {}).get('masterIdentifier', {}).get('value')
@@ -29,4 +29,5 @@ def send_api_request():
         second_response = requests.get(second_api_url, headers=headers)
         second_response.raise_for_status()  # Raises a HTTPError if the response is an error
         second_data = second_response.json()
-        print("Second API Response:", second_data)
+        #print("Second API Response:", second_data)
+return second_data
