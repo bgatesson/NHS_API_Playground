@@ -3,9 +3,12 @@ import call_SCR
 
 app = Flask(__name__)
 
+@app.route('/api-request', methods=['GET'])
+def receive_api_request():
+    data = send_api_request()
+    return jsonify(data)
+
 @app.route('/parse-json', methods=['POST'])
-request = send_api_request()
-print(parse_json(request))
 def parse_json():
     # Check if the request contains JSON data
     if request.is_json:
