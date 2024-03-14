@@ -30,4 +30,4 @@ def send_api_request():
         second_response.raise_for_status()  # Raises a HTTPError if the response is an error
         second_data = second_response.json()
         #print("Second API Response:", second_data)
-return second_data
+    return second_data
