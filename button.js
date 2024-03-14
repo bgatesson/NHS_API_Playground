@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Event listener for the button click
     document.getElementById("apiButton").addEventListener("click", function() {
         // Call the function to send the API request
-        fetch('http://localhost:5000/api-request')
+        fetch('https://dev01.acrossmedical.co.uk/parser')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
