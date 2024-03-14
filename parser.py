@@ -3,7 +3,7 @@ import call_SCR
 
 app = Flask(__name__)
 
-@app.route('/api-request', methods=['GET'])
+@app.route('/parser', methods=['GET'])
 def receive_api_request():
     data = send_api_request()
     return jsonify(data)
