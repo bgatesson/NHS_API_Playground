@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 import requests
-from call_SCR import send_api_request
 
 app = Flask(__name__)
 
