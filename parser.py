@@ -10,7 +10,7 @@ def send_api_request():
 
     # Headers for the first API request
     headers = {
-        "authorization": "Bearer VbmC5e7Z1TlGD5hIy3gZDU3cgGLS",
+        "authorization": "Bearer OwMAV3B7j6tVAm8zzszZpEAaGhNb",
         "accept": "application/fhir+json",
         "nhsd-session-urid": "555021935107",
         "x-correlation-id": "11C46F5F-CDEF-4865-94B2-0EE0EDCC26DA",
