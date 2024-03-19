@@ -10,7 +10,7 @@ def send_api_request():
 
     # Headers for the first API request
     headers = {
-        "authorization": "eyJhbGciOiJSUzUxMiIsImtpZCI6InRlc3QtMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6UkhwdE1wVnFBR0dpOUVkbG41MzVseW1MZXE1THpkNCIsImlzcyI6InpSSHB0TXBWcUFHR2k5RWRsbjUzNWx5bUxlcTVMemQ0IiwianRpIjoiOTY1NjQxNjktYTE0YS00ZmI5LWFlNDgtNDQ3Y2IyMTM4OTg1IiwiYXVkIjoiaHR0cHM6Ly9pbnQuYXBpLnNlcnZpY2UubmhzLnVrL29hdXRoMi90b2tlbiIsImV4cCI6MTcxMDg2MjQxNn0.jSDEGg-WhApIKJCdjjFujAekL0uRVRK3HWWoIXEAOnEH6Cf73Oaj_pOWkwSg97fMDuplCxOKBOlZr94neMtQSuz2fFC4OdEgECI5FA-URVY4bOynB5QbJgxO5GCdYUdBc4qXjMKubbIHjp1omdoVQyecCRvwVGMw_F6zu6eH5I9c2GgOnHJh7k_gMFiA6fr1jljRKmj53fIfgZ44oPxdGbPL-0GwFoYY2XYxdOeUY1BMqDMgXmNIVKTd4hgmc3Lbg73VtpEDotJBL_kf0NU1sr0qJJ94Bfr6inkT7NW0JwIkQn72WhlZvrJnPFqM9ceqWNDKpmrqVETiK4VMd9WRYWXu4TndJ8_-zD-KTa5n9y2ZQfCgbC-89q5PgfBsPxCOTRvXlpNAbNMpfSo_hnLrk3jxHyTm46tsL6kBIJPqn7k_VbL5o1cd8AqjPlzvvr5odm-HW9Zl5NR5UyZ8Bhy4TMvakMV65eI97GSmp7UZl_DogGNpFBfhh2rttDIVkhRdCugDK7PkvT3wxPotJche0h_ArNUulsiYtLXJuvKnLXZqTL-C0VleLnSiguqfrwqAHkVaYLQ7OH8ryhRraGGfcA_GqjmDphX6XLfhzMdax74yDQK54x7EVzyIgTfWAh5MECvCPf9c1-EE6_0M7U8czHcVWufOqHr6jBKA5c0shtc",
+        "authorization": "Bearer VbmC5e7Z1TlGD5hIy3gZDU3cgGLS",
         "accept": "application/fhir+json",
         "nhsd-session-urid": "555021935107",
         "x-correlation-id": "11C46F5F-CDEF-4865-94B2-0EE0EDCC26DA",
