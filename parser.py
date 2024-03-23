@@ -11,6 +11,7 @@ def send_api_request():
     print(NHS_number)
     # get access token
     access_token = AccessTokenGen.generate_token()
+    print(access_token)
     # URL for the first Summary Care Record API GET request
     first_api_url = f"https://int.api.service.nhs.uk/summary-care-record/FHIR/R4/DocumentReference?patient=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C{NHS_number}&type=http%3A%2F%2Fsnomed.info%2Fsct%7C196981000000101&_sort=date&_count=1"
 
