@@ -7,8 +7,7 @@ app = Flask(__name__)
 @app.route('/parser', methods=['GET'])
 def send_api_request():
     # NHS Number
-    NHS_number = request.args.get("nhs_id")
-    print(NHS_number)
+    NHS_number = 9000000009 #request.args.get("nhs_id")
     # get access token
     access_token = AccessTokenGen.generate_token()
     print(access_token)
