@@ -6,12 +6,15 @@ app = Flask(__name__)
 
 @app.route('/parser', methods=['GET'])
 def send_api_request():
+
+    # get access token
+    access_token = AccessTokenGen.generate_token()
     # URL for the first Summary Care Record API GET request
     first_api_url = "https://int.api.service.nhs.uk/summary-care-record/FHIR/R4/DocumentReference?patient=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C9000000009&type=http%3A%2F%2Fsnomed.info%2Fsct%7C196981000000101&_sort=date&_count=1"
 
     # Headers for the first API request
     headers = {
-        "authorization": "Bearer 7aBqGdc8mC2PlVhOpEkgDRAtmcom",
+        "authorization": f"Bearer {access_token}",
         "accept": "application/fhir+json",
         "nhsd-session-urid": "555021935107",
         "x-correlation-id": "11C46F5F-CDEF-4865-94B2-0EE0EDCC26DA",
