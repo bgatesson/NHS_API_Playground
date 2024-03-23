@@ -8,6 +8,7 @@ app = Flask(__name__)
 def send_api_request():
     # NHS Number
     NHS_number = request.args.get("nhs_id")
+    print(NHS_number)
     # get access token
     access_token = AccessTokenGen.generate_token()
     # URL for the first Summary Care Record API GET request
