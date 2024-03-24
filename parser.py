@@ -4,15 +4,38 @@ import AccessTokenGen
 
 app = Flask(__name__)
 
+# get access token
+access_token = AccessTokenGen.generate_token()
+
 @app.route('/parser', methods=['GET'])
-def send_api_request():
+
+def get_pds_data():
     # NHS Number
-    NHS_number = request.args.get("nhs_id")
-    # get access token
-    access_token = AccessTokenGen.generate_token()
-    print(access_token)
+    NHS_ID = 9449306613
+    # URL for PDS endpoint
+    url = f"https://int.api.service.nhs.uk/personal-demographics/FHIR/R4/Patient/{NHS_ID}"
+
+    # Headers for the first API request
+    headers = {
+        "authorization": f"Bearer {access_token}",
+        "accept": "application/fhir+json",
+        "nhsd-session-urid": "555021935107",
+        "x-correlation-id": "11C46F5F-CDEF-4865-94B2-0EE0EDCC26DA",
+        "x-request-id": "60E0B220-8136-4CA5-AE46-1D97EF59D068"
+    }
+
+    # Fetch API request for the first API call
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()  # Raises a HTTPError if the response is an error
+    data = response.json()
+    return data
+
+def get_scr_data():
+    # NHS Number
+    NHS_ID = 9000000009 #request.args.get("nhs_id")
+
     # URL for the first Summary Care Record API GET request
-    first_api_url = f"https://int.api.service.nhs.uk/summary-care-record/FHIR/R4/DocumentReference?patient=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C{NHS_number}&type=http%3A%2F%2Fsnomed.info%2Fsct%7C196981000000101&_sort=date&_count=1"
+    first_api_url = f"https://int.api.service.nhs.uk/summary-care-record/FHIR/R4/DocumentReference?patient=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C{NHS_ID}&type=http%3A%2F%2Fsnomed.info%2Fsct%7C196981000000101&_sort=date&_count=1"
 
     # Headers for the first API request
     headers = {
@@ -44,21 +67,12 @@ def send_api_request():
     return second_data
     
 def receive_api_request():
-    data = send_api_request()
-    return jsonify(data)
-
-def parse_json():
-    # Check if the request contains JSON data
-    if request.is_json:
-        # Get the JSON data
-        json_data = request.get_json()
-
-        # Convert the JSON object to a string
-        string_data = str(json_data)
-
-        # Return the string data
-        return jsonify({"message": "JSON parsed successfully", "data": string_data}), 200
-    else:
-        return jsonify({"error": "Request must be JSON"}), 400
+    pds_data = get_pds_data()
+    scr_data = get_scr_data()
+    combined_json = {
+        "patientInfo": pds_data,
+        "healthInfo": scr_data
+    }
+    return jsonify(combined_json)
 
 app.run(debug=True)
