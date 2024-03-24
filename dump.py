@@ -61,3 +61,18 @@ function sendApiRequest() {
         document.getElementById("apiResponse").innerHTML = `<p>Error: ${error.message}</p>`;
     });
 }
+
+
+def parse_json():
+    # Check if the request contains JSON data
+    if request.is_json:
+        # Get the JSON data
+        json_data = request.get_json()
+
+        # Convert the JSON object to a string
+        string_data = str(json_data)
+
+        # Return the string data
+        return jsonify({"message": "JSON parsed successfully", "data": string_data}), 200
+    else:
+        return jsonify({"error": "Request must be JSON"}), 400
