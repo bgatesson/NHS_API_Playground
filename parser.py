@@ -4,9 +4,7 @@ import AccessTokenGen
 
 app = Flask(__name__)
 
-def get_pds_data(access_token):
-    # NHS Number
-    NHS_ID = 9449306613
+def get_pds_data(access_token, NHS_ID):
     # URL for PDS endpoint
     url = f"https://int.api.service.nhs.uk/personal-demographics/FHIR/R4/Patient/{NHS_ID}"
 
@@ -25,10 +23,7 @@ def get_pds_data(access_token):
     data = response.json()
     return data
 
-def get_scr_data(access_token):
-    # NHS Number
-    NHS_ID = 9000000009 #request.args.get("nhs_id")
-
+def get_scr_data(access_token, NHS_ID):
     # URL for the first Summary Care Record API GET request
     first_api_url = f"https://int.api.service.nhs.uk/summary-care-record/FHIR/R4/DocumentReference?patient=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C{NHS_ID}&type=http%3A%2F%2Fsnomed.info%2Fsct%7C196981000000101&_sort=date&_count=1"
 
@@ -65,8 +60,11 @@ def get_scr_data(access_token):
 def receive_api_request():
     # get access token
     access_token = AccessTokenGen.generate_token()
-    pds_data = get_pds_data(access_token)
-    scr_data = get_scr_data(access_token)
+    # get NHS number
+    NHS_ID = request.args.get("nhs_id")
+    
+    pds_data = get_pds_data(access_token, NHS_ID)
+    scr_data = get_scr_data(access_token, NHS_ID)
     combined_json = {
         "patientInfo": pds_data,
         "healthInfo": scr_data
