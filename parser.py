@@ -4,8 +4,6 @@ import AccessTokenGen
 
 app = Flask(__name__)
 
-@app.route('/parser', methods=['GET'])
-
 def get_pds_data(access_token):
     # NHS Number
     NHS_ID = 9449306613
@@ -62,7 +60,8 @@ def get_scr_data(access_token):
         second_data = second_response.json()
         #print("Second API Response:", second_data)
     return second_data
-    
+
+@app.route('/parser', methods=['GET'])
 def receive_api_request():
     # get access token
     access_token = AccessTokenGen.generate_token()
