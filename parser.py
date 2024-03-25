@@ -52,7 +52,7 @@ def get_scr_data(access_token):
 
     if composition_identifier:
         # URL for the second Summary Care Record API GET request
-        second_api_url = f"https://int.api.service.nhs.uk/summary-care-record/FHIR/R4/Bundle?composition.identifier={composition_identifier}&composition.subject%3APatient.identifier=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C{NHS_number}"
+        second_api_url = f"https://int.api.service.nhs.uk/summary-care-record/FHIR/R4/Bundle?composition.identifier={composition_identifier}&composition.subject%3APatient.identifier=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C{NHS_ID}"
 
         # Fetch API request for the second API call
         second_response = requests.get(second_api_url, headers=headers)
