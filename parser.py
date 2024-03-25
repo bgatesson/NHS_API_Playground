@@ -56,7 +56,7 @@ def get_scr_data(access_token, NHS_ID):
         #print("Second API Response:", second_data)
     return second_data
 
-@app.route('/parser?nhs_id=9449305552', methods=['GET'])
+@app.route('/parser', methods=['GET'])
 def receive_api_request():
     # get access token
     access_token = AccessTokenGen.generate_token()
