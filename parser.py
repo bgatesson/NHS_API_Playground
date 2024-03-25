@@ -4,12 +4,9 @@ import AccessTokenGen
 
 app = Flask(__name__)
 
-# get access token
-access_token = AccessTokenGen.generate_token()
-
 @app.route('/parser', methods=['GET'])
 
-def get_pds_data():
+def get_pds_data(access_token):
     # NHS Number
     NHS_ID = 9449306613
     # URL for PDS endpoint
@@ -30,7 +27,7 @@ def get_pds_data():
     data = response.json()
     return data
 
-def get_scr_data():
+def get_scr_data(access_token):
     # NHS Number
     NHS_ID = 9000000009 #request.args.get("nhs_id")
 
@@ -67,6 +64,8 @@ def get_scr_data():
     return second_data
     
 def receive_api_request():
+    # get access token
+    access_token = AccessTokenGen.generate_token()
     pds_data = get_pds_data()
     scr_data = get_scr_data()
     combined_json = {
