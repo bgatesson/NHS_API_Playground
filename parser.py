@@ -65,8 +65,8 @@ def get_scr_data(access_token):
 def receive_api_request():
     # get access token
     access_token = AccessTokenGen.generate_token()
-    pds_data = get_pds_data()
-    scr_data = get_scr_data()
+    pds_data = get_pds_data(access_token)
+    scr_data = get_scr_data(access_token)
     combined_json = {
         "patientInfo": pds_data,
         "healthInfo": scr_data
