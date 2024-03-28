@@ -66,6 +66,7 @@ def receive_api_request():
     pds_data = get_pds_data(access_token, NHS_ID)
     scr_data = get_scr_data(access_token, NHS_ID)
     combined_json = {
+        "NHS_ID": NHS_ID,
         "patientInfo": pds_data,
         "healthInfo": scr_data
     }
